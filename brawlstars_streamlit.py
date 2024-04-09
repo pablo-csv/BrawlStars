@@ -30,7 +30,6 @@ st.set_page_config(layout="wide", page_title="Liga Terraplanista")
 pred_players = {'Matías': '#YGG02LP0',
                 'Merto': '#298QCP0L8',
                 'Gustabo': '#20LC9VGP',
-                'Javi': '#280RP8PQ2', 
                 'Oscarabajo': '#YVLPG0G',
                 'Chino': '#YY88RLL0',
                 'Antonio Reverte': '#YGUGQ0GU',
