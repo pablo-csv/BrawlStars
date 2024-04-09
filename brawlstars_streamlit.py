@@ -121,6 +121,7 @@ else:
 st.write(' ')
 
 st.text('En modos de equipo:')
+st.write(results)
 #st.write(f"  {results['victory']} victorias")
 st.write(f"  {results['defeat']} derrotas")
 
