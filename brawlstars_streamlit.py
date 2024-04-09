@@ -107,18 +107,18 @@ st.text(f'En las últimas {len(battles)} partidas...')
 
 st.write(' ')
 
-st.write(f'Trofeos ganados: {trophies_won}')
-st.write(f'Trofeos perdidos: {trophies_lost}')
+st.write(f'  Trofeos ganados: {trophies_won}')
+st.write(f'  Trofeos perdidos: {trophies_lost}')
 if (trophies_won - trophies_lost) >= 0:
-    st.write(f'Balance de trofeos: +{trophies_won - trophies_lost} ☝️🤓')
+    st.write(f'  Balance de trofeos: +{trophies_won - trophies_lost} ☝️🤓')
 else:
-    st.write(f'Balance de trofeos: {trophies_won - trophies_lost} 😂')
+    st.write(f'  Balance de trofeos: {trophies_won - trophies_lost} 😂')
 
 st.write(' ')
 
 st.write('En modos de equipo:')
-st.write(f"{results['victory']} victorias")
-st.write(f"{results['defeat']} derrotas")
+st.write(f"  {results['victory']} victorias")
+st.write(f"  {results['defeat']} derrotas")
 
 st.write(' ')
 
@@ -126,9 +126,16 @@ st.write('En modos individuales:')
 for rank, number in dict(sorted(results.items())).items():
     if len(rank) == 1:
         if number == 1:
-            st.write(f"Puesto {rank}: {number} vez")
+            st.write(f"  Puesto {rank}: {number} vez")
         else:
-            st.write(f"Puesto {rank}: {number} veces")
+            st.write(f"  Puesto {rank}: {number} veces")
+
+st.write(' ')
+
+st.write('Jugadores favoritos:')
+for player, info in players.items():
+    if info[1] >= 2:
+        st.write(f'{info[1]}: {info[1]} partidas compartidas')
 
 
 
