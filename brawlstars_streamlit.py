@@ -2,7 +2,17 @@
 import requests
 import streamlit as st
 
-def get_battlelog(player_tag, my_key):
+
+
+proxy = {
+    'http': 'http://72.10.160.91:13403',
+    'https': 'https://72.10.160.91:13403'
+}
+
+
+
+
+def get_battlelog(player_tag, my_key, proxy):
     api_url = f'https://api.brawlstars.com/v1/players/%23{player_tag[1:]}/battlelog'
     headers = {
         'Authorization': f'Bearer {my_key}',
@@ -10,7 +20,7 @@ def get_battlelog(player_tag, my_key):
     }
     
     try:
-        response = requests.get(api_url, headers=headers)
+        response = requests.get(api_url, headers=headers, proxies=proxy)
         response.raise_for_status()  # Raise an exception for 4XX or 5XX errors
         battlelog = response.json()
         return battlelog
@@ -71,7 +81,6 @@ else:
 
 
 
-
 if player_name[0] == '#':
     player_tag = player_name
 else:
@@ -79,7 +88,7 @@ else:
     
 print(player_tag)
 
-battles = get_battlelog(player_tag, my_key)
+battles = get_battlelog(player_tag, my_key, proxy)
 
 st.text(battles)
 
