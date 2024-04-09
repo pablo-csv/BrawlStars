@@ -117,8 +117,8 @@ else:
 st.write()
 
 st.write('En modos de equipo:')
-st.write('{results['victory']} victorias')
-st.write('{results['defeat']} derrotas')
+st.write('f{results['victory']} victorias')
+st.write('f{results['defeat']} derrotas')
 
 st.write()
 
