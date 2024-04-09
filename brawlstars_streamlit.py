@@ -111,7 +111,7 @@ st.write(f'Trofeos perdidos: {trophies_lost}')
 if (trophies_won - trophies_lost) <= 0:
     st.write(f'Balance de trofeos: +{trophies_won - trophies_lost} ☝️🤓')
 else:
-    st.write(f'Balance de trofeos: {trophies_won - trophies_lost}' 🫵😂)
+    st.write(f'Balance de trofeos: {trophies_won - trophies_lost}' 🤣)
 
 
 
