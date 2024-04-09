@@ -137,6 +137,15 @@ for player, info in players.items():
     if info[1] >= 2:
         st.write(f'{info[0]}: {info[1]} partidas compartidas')
 
+st.write(' ')
+
+st.write('Modos favoritos:')
+for mode, number in modes.items():
+    if number == 1:
+        st.write(f'{mode}: jugado {number} vez')
+    else:
+        st.write(f'{mode}: jugado {number} veces')
+
 
 
 
