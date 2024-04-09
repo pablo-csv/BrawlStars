@@ -50,7 +50,8 @@ try:
 except:
     print('Nada que mostrar...')
 
-st.text(f'En las últimas {len(battles)} partidas...)
+
+st.text(f'En las últimas {len(battles)} partidas...')
 
 
 
