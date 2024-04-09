@@ -1,7 +1,16 @@
 
 import requests
 import streamlit as st
+import json
+import base64
 
+
+# Define la función para descargar los datos JSON
+def descargar_json(data, filename):
+    json_data = json.dumps(data, indent=4)
+    b64 = base64.b64encode(json_data.encode()).decode()
+    href = f'<a href="data:file/json;base64,{b64}" download="{filename}.json">Descargar JSON</a>'
+    st.markdown(href, unsafe_allow_html=True)
 
 
 def get_battlelog(player_tag, my_key):
@@ -167,10 +176,9 @@ for brawler, number in brawlers.items():
 st.write(' ')
 st.write(' ')
 
-st.text('Datos usados para el análisis:')
-
-for battle in battles:
-    st.write(battle)
+# Botón para descargar los datos JSON
+if st.button("Descargar datos JSON"):
+    descargar_json(datos_json, "datos")
 
 
 
