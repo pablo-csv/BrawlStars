@@ -70,7 +70,7 @@ for battle in battles:
     if mode == 'soloShowdown':
         for player in battle['battle']['players']:
             if player['tag'] == player_tag:
-                continue
+                brawler = player['brawler']['name']
             if player['tag'] in players.keys():
                 players[player['tag']][1] += 1
             else:
@@ -78,11 +78,16 @@ for battle in battles:
     else:
         for player in battle['battle']['teams'][0] + battle['battle']['teams'][1]:
             if player['tag'] == player_tag:
-                continue
+                brawler = player['brawler']['name']
             if player['tag'] in players.keys():
                 players[player['tag']][1] += 1
             else:
                 players[player['tag']] = [player['name'], 1]
+
+    if brawler in brawlers:
+        brawlers[brawler] += 1
+    else:
+        brawlers[brawler] = 1
     
     try:
         trophies = int(battle['battle']['trophyChange'])
@@ -145,6 +150,15 @@ for mode, number in modes.items():
         st.write(f'{mode}: jugado {number} vez')
     else:
         st.write(f'{mode}: jugado {number} veces')
+
+st.write(' ')
+
+st.write('Brawlers favoritos:')
+for brawler, number in brawlers.items():
+    if number == 1:
+        st.write(f'{brawler}: {number} partida')
+    else:
+        st.write(f'{brawler}: {number} partidas')
 
 
 
