@@ -35,7 +35,7 @@ pred_players = {'Matías': '#YGG02LP0',
                 'Antonio Reverte': '#YGUGQ0GU',
                 'Desi': '#CLG2RRC9'}
 
-player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
+player_name = st.selectbox('Jugador (admite tags empezados por # de jugadores no predeterminados)', pred_players.keys(), index=1)
 
 
 if player_name[0] == '#':
