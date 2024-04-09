@@ -53,7 +53,7 @@ except:
 
 modes = {}
 brawlers = {}
-results = {}
+results = {'victory': 0, 'defeat': 0}
 players = {}
 trophies_won = 0
 trophies_lost = 0
