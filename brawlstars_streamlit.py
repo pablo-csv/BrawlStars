@@ -5,8 +5,8 @@ import streamlit as st
 
 
 proxy = {
-    'http': 'http://72.10.160.91:13403',
-    'https': 'https://72.10.160.91:13403'
+    'http': 'http://72.10.164.178:23241',
+    'https': 'https://72.10.164.178:23241'
 }
 
 
