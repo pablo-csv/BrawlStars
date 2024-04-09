@@ -178,7 +178,7 @@ st.write(' ')
 
 # Botón para descargar los datos JSON
 if st.button("Descargar datos JSON"):
-    descargar_json(datos_json, "datos")
+    descargar_json(battles, f"partidas_{player_tag}")
 
 
 
