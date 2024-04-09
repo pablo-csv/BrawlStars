@@ -39,6 +39,39 @@ player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
 
 player_name = 'Desi'    # PROVISIONAL
 
+
+
+
+
+import socket
+
+def get_ip_address():
+    try:
+        # Crear un socket UDP
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # Conectar a un servidor DNS para obtener la dirección IP
+        s.connect(("8.8.8.8", 80))
+        # Obtener la dirección IP del socket
+        ip_address = s.getsockname()[0]
+        # Cerrar el socket
+        s.close()
+        return ip_address
+    except socket.error as e:
+        print("Error al obtener la dirección IP:", e)
+        return None
+
+# Obtener y mostrar la dirección IP
+ip_address = get_ip_address()
+if ip_address:
+    print("La dirección IP de este dispositivo es:", ip_address)
+else:
+    print("No se pudo obtener la dirección IP.")
+
+
+
+
+
+
 if player_name[0] == '#':
     player_tag = player_name
 else:
