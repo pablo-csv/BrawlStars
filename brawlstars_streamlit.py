@@ -106,12 +106,14 @@ for battle in battles:
         results[result] = 1
 
 
-st.text(f'Trofeos ganados: {trophies_won}')
+st.write(f'Trofeos ganados: {trophies_won}')
 st.write(f'Trofeos perdidos: {trophies_lost}')
 if (trophies_won - trophies_lost) >= 0:
-    st.text(f'Balance de trofeos: +{trophies_won - trophies_lost}')
+    st.write(f'Balance de trofeos: +{trophies_won - trophies_lost}')
+    st.write('☝️🤓')
 else:
-    st.text(f'Balance de trofeos: {trophies_won - trophies_lost}')
+    st.write(f'Balance de trofeos: {trophies_won - trophies_lost}')
+    st.write('🫵😂')
 
 
 
