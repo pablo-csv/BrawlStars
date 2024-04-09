@@ -98,7 +98,7 @@ for battle in battles:
         pass
     
     try:
-        result = battle['battle']['rank']
+        result = str(battle['battle']['rank'])
     except:
         result = battle['battle']['result']
     if result in results:
@@ -117,7 +117,7 @@ else:
 st.write()
 
 st.write('En modos de equipo:')
-st.write(f"{results['victory']} victorias")
+st.write(f"{results['victory']} victorias\n{results['defeat']} derrotas")
 st.write(f"{results['defeat']} derrotas")
 
 st.write()
