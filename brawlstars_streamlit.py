@@ -122,7 +122,7 @@ st.write(f"{results['defeat']} derrotas")
 
 st.write()
 
-st.write('En modos individuales:'):
+st.write('En modos individuales:')
 for rank, number in dict(sorted(results.items())).items():
     st.write(rank, number)
 
