@@ -125,7 +125,7 @@ st.write(' ')
 st.write('En modos individuales:')
 for rank, number in dict(sorted(results.items())).items():
     if len(rank) == 1:
-        st.write(f"Puesto {rank}, {number} vez)
+        st.write(f"Puesto {rank}, {number} vez")
 
 
 
