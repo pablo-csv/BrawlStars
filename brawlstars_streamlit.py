@@ -41,8 +41,6 @@ player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
 player_name = 'Desi'    # PROVISIONAL
 
 
-
-
 if player_name[0] == '#':
     player_tag = player_name
 else:
@@ -56,7 +54,54 @@ st.text(battles)
 
 
 
+modes = {}
+brawlers = {}
+results = {}
+players = {}
+trophies = 0
 
+for battle in battles:
+    time = battle['battleTime']
+    #year, month, day, hour = time[0:4], time[4:6], time[6:8], ':'.join([time[9:15][i:i+2] for i in range(0, len(time[9:15]), 2)])
+    mode = battle['battle']['mode']
+    if mode in modes:
+        modes[mode] += 1
+    else:
+        modes[mode] = 1
+    
+    if mode == 'soloShowdown':
+        for player in battle['battle']['players']:
+            if player['tag'] == player_tag:
+                continue
+            if player['tag'] in players.keys():
+                players[player['tag']][1] += 1
+            else:
+                players[player['tag']] = [player['name'], 1]
+    else:
+        for player in battle['battle']['teams'][0] + battle['battle']['teams'][1]:
+            if player['tag'] == player_tag:
+                continue
+            if player['tag'] in players.keys():
+                players[player['tag']][1] += 1
+            else:
+                players[player['tag']] = [player['name'], 1]
+    
+    try:
+        trophies += int(battle['battle']['trophyChange'])
+    except:
+        pass
+    
+    try:
+        result = battle['battle']['rank']
+    except:
+        result = battle['battle']['result']
+    if result in results:
+        results[result] += 1
+    else:
+        results[result] = 1
+
+
+st.text(trophies)
 
 
 
