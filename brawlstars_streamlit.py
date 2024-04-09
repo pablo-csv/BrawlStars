@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 import json
 import base64
-import altair as alt
+import plotly.express as px
 import pandas as pd
 
 
@@ -190,17 +190,11 @@ for brawler, number in brawlers.items():
 # Convertir el diccionario a un DataFrame de Pandas
 df = pd.DataFrame(list(brawlers.items()), columns=['Brawler', 'Cantidad'])
 
-# Crear el gráfico circular con Altair
-pie_chart = alt.Chart(df).mark_circle(size=500).encode(
-    alt.X('Cantidad:Q', axis=None),
-    alt.Y('Brawler:N', title='Brawlers'),
-    color=alt.Color('Brawler:N', legend=None)
-).properties(
-    title='Distribución de Brawlers'
-).interactive()
+# Crear el gráfico circular con Plotly
+fig = px.pie(df, values='Cantidad', names='Brawler', title='Distribución de Brawlers')
 
 # Mostrar el gráfico en Streamlit
-st.write(pie_chart)
+st.plotly_chart(fig)
 
 
 st.write(' ')
