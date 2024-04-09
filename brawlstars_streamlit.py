@@ -3,7 +3,8 @@ import requests
 import streamlit as st
 import json
 import base64
-import matplotlib.pyplot as plt
+import altair alt
+import pandas as pd
 
 
 
@@ -186,18 +187,20 @@ for brawler, number in brawlers.items():
     else:
         st.write(f'{brawler}: {number} partidas')
 
-# Extraer etiquetas y tamaños de valores del diccionario
-etiquetas = list(brawlers.keys())
-tamaños = list(brawlers.values())
+# Convertir el diccionario a un DataFrame de Pandas
+df = pd.DataFrame(list(brawlers.items()), columns=['Brawler', 'Cantidad'])
 
-# Crear el gráfico circular
-fig, ax = plt.subplots()
-ax.pie(tamaños, labels=etiquetas, autopct='%1.1f%%', startangle=140)
-ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax.set_title('Distribución de Brawlers')
+# Crear el gráfico circular con Altair
+pie_chart = alt.Chart(df).mark_circle(size=500).encode(
+    alt.X('Cantidad:Q', axis=None),
+    alt.Y('Brawler:N', title='Brawlers'),
+    color=alt.Color('Brawler:N', legend=None)
+).properties(
+    title='Distribución de Brawlers'
+).interactive()
 
 # Mostrar el gráfico en Streamlit
-st.pyplot(fig)
+st.write(pie_chart)
 
 
 st.write(' ')
