@@ -5,11 +5,22 @@ import json
 import base64
 
 
-# Define la función para descargar los datos JSON
-def descargar_json(data, filename):
-    json_data = json.dumps(data, indent=4)
-    b64 = base64.b64encode(json_data.encode()).decode()
-    href = f'<a href="data:file/json;base64,{b64}" download="{filename}.json">Descargar JSON</a>'
+# Define la función para descargar los datos en formato JSON o TXT
+def descargar_datos(data, filename, format):
+    if format == "JSON":
+        formatted_data = json.dumps(data, indent=4)
+        mime_type = "file/json"
+        file_extension = "json"
+    elif format == "TXT":
+        formatted_data = '\n'.join([f"{k}: {v}" for d in data for k, v in d.items()])
+        mime_type = "file/txt"
+        file_extension = "txt"
+    else:
+        st.error("Formato no válido")
+        return
+
+    b64 = base64.b64encode(formatted_data.encode()).decode()
+    href = f'<a href="data:{mime_type};base64,{b64}" download="{filename}.{file_extension}">Descargar {format}</a>'
     st.markdown(href, unsafe_allow_html=True)
 
 
@@ -176,10 +187,10 @@ for brawler, number in brawlers.items():
 st.write(' ')
 st.write(' ')
 
-# Botón para descargar los datos JSON
-if st.button("Descargar datos JSON"):
-    descargar_json(battles, f"partidas_{player_tag}")
-
+# Botones para descargar los datos en diferentes formatos
+formato = st.selectbox("Selecciona el formato de descarga:", ["JSON", "TXT"])
+if st.button(f"Descargar datos en formato {formato}"):
+    descargar_datos(battles, f"partidas_{player_tag}", formato)
 
 
 
