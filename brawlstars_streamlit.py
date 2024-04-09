@@ -52,6 +52,7 @@ except:
 
 
 st.text(f'En las últimas {len(battles)} partidas...')
+st.write()
 
 
 
@@ -113,7 +114,17 @@ if (trophies_won - trophies_lost) >= 0:
 else:
     st.write(f'Balance de trofeos: {trophies_won - trophies_lost} 😂')
 
+st.write()
 
+st.write('En modos de equipo:')
+st.write('{results['victory']} victorias')
+st.write('{results['defeat']} derrotas')
+
+st.write()
+
+st.write('En modos individuales:'):
+for rank, number in dict(sorted(results.items())).items():
+    st.write(rank, number)
 
 
 
