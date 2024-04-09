@@ -38,22 +38,19 @@ pred_players = {'Matías': '#YGG02LP0',
 
 player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
 
-player_name = 'Desi'    # PROVISIONAL
-
 
 if player_name[0] == '#':
     player_tag = player_name
 else:
     player_tag = pred_players[player_name]
     
-print(player_tag)
 
 try:
     battles = get_battlelog(player_tag, my_key)['items']
 except:
     print('Nada que mostrar...')
 
-st.text(battles)
+st.text(f'En las últimas {len(battles)} partidas...)
 
 
 
