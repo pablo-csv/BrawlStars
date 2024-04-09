@@ -51,10 +51,6 @@ except:
     print('Nada que mostrar...')
 
 
-st.text(f'En las últimas {len(battles)} partidas...')
-st.write()
-
-
 
 modes = {}
 brawlers = {}
@@ -107,6 +103,10 @@ for battle in battles:
         results[result] = 1
 
 
+st.text(f'En las últimas {len(battles)} partidas...')
+
+st.write(' ')
+
 st.write(f'Trofeos ganados: {trophies_won}')
 st.write(f'Trofeos perdidos: {trophies_lost}')
 if (trophies_won - trophies_lost) >= 0:
@@ -114,13 +114,13 @@ if (trophies_won - trophies_lost) >= 0:
 else:
     st.write(f'Balance de trofeos: {trophies_won - trophies_lost} 😂')
 
-st.write()
+st.write(' ')
 
 st.write('En modos de equipo:')
-st.write(f"{results['victory']} victorias\n{results['defeat']} derrotas")
+st.write(f"{results['victory']} victorias")
 st.write(f"{results['defeat']} derrotas")
 
-st.write()
+st.write(' ')
 
 st.write('En modos individuales:')
 for rank, number in dict(sorted(results.items())).items():
