@@ -135,7 +135,7 @@ st.write(' ')
 st.write('Jugadores favoritos:')
 for player, info in players.items():
     if info[1] >= 2:
-        st.write(f'{info[1]}: {info[1]} partidas compartidas')
+        st.write(f'{info[0]}: {info[1]} partidas compartidas')
 
 
 
