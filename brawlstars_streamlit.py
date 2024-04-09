@@ -121,13 +121,13 @@ else:
 
 st.write(' ')
 
-st.write('En modos de equipo:')
+st.text('En modos de equipo:')
 st.write(f"  {results['victory']} victorias")
 st.write(f"  {results['defeat']} derrotas")
 
 st.write(' ')
 
-st.write('En modos individuales:')
+st.text('En modos individuales:')
 for rank, number in dict(sorted(results.items())).items():
     if len(rank) == 1:
         if number == 1:
@@ -137,14 +137,14 @@ for rank, number in dict(sorted(results.items())).items():
 
 st.write(' ')
 
-st.write('Jugadores favoritos:')
+st.text('Jugadores favoritos:')
 for player, info in players.items():
     if info[1] >= 2:
         st.write(f'{info[0]}: {info[1]} partidas compartidas')
 
 st.write(' ')
 
-st.write('Modos favoritos:')
+st.text('Modos favoritos:')
 for mode, number in modes.items():
     if number == 1:
         st.write(f'{mode}: jugado {number} vez')
@@ -153,12 +153,16 @@ for mode, number in modes.items():
 
 st.write(' ')
 
-st.write('Brawlers favoritos:')
+st.text('Brawlers favoritos:')
 for brawler, number in brawlers.items():
     if number == 1:
         st.write(f'{brawler}: {number} partida')
     else:
         st.write(f'{brawler}: {number} partidas')
+
+st.write(' ')
+
+st.text('Merto estoy enamorado de ti')
 
 
 
