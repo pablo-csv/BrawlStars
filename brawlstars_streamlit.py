@@ -59,7 +59,8 @@ modes = {}
 brawlers = {}
 results = {}
 players = {}
-trophies = 0
+trophies_won = 0
+trophies_lost = 0
 
 for battle in battles:
     time = battle['battleTime']
@@ -87,7 +88,11 @@ for battle in battles:
                 players[player['tag']] = [player['name'], 1]
     
     try:
-        trophies += int(battle['battle']['trophyChange'])
+        trophies = int(battle['battle']['trophyChange'])
+        if trophies > 0:
+            trophies_won += trophies
+        elif trophies < 0:
+            trophies_lost -= trophies
     except:
         pass
     
@@ -101,7 +106,12 @@ for battle in battles:
         results[result] = 1
 
 
-st.text(trophies)
+st.text(f'Trofeos ganados: {trophies_won}')
+st.write(f'Trofeos perdidos: {trophies_lost}')
+if (trophies_won - trophies_lost) >= 0:
+    st.text(f'Balance de trofeos: +{trophies_won - trophies_lost}')
+else:
+    st.text(f'Balance de trofeos: {trophies_won - trophies_lost}')
 
 
 
