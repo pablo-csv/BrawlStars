@@ -21,8 +21,7 @@ def get_battlelog(player_tag, my_key):
         return None
     
 
-my_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjlhNTEwOTIxLTQ1MjItNDY1ZC05NzZkLWNlMjMxMDY3ZjdjMCIsImlhdCI6MTcxMjY3NjI0MCwic3ViIjoiZGV2ZWxvcGVyL2MxNGEwOGRiLTZiMmQtYTc5OC02YTc2LWJlZDcwN2JjNzAxMiIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiNDUuNzkuMjE4Ljc5IiwiMTU4LjQyLjE3Mi4yOCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.PCo3Gb06f-yZbBnlDqPSgOw8bSOhmQl_aIhhtmnqSYHyROMHhDCapveTqjK7A3tXmMvdRCVXJLH3FuwweTgl7Q'
-
+my_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjM5YTc5ZTg0LWZkN2YtNDk5Ny05ZDlhLWU4ODNmZDg4M2QxMyIsImlhdCI6MTcxMjY3NjQ3MCwic3ViIjoiZGV2ZWxvcGVyL2MxNGEwOGRiLTZiMmQtYTc5OC02YTc2LWJlZDcwN2JjNzAxMiIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiNDUuNzkuMjE4Ljc5Il0sInR5cGUiOiJjbGllbnQifV19.SM4iXgIPt5rp0F2pCPrWfSIW372OUr-0HkpmmRT1TXDkuTs2wrvV0gTLts-SaPO7h4D7Oqi9ON1srumGEk9C9g'
 
 
 # CONFIGURACIÓN DE LA WEB
@@ -40,35 +39,6 @@ pred_players = {'Matías': '#YGG02LP0',
 player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
 
 player_name = 'Desi'    # PROVISIONAL
-
-
-
-
-
-import socket
-
-def get_ip_address():
-    try:
-        # Crear un socket UDP
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        # Conectar a un servidor DNS para obtener la dirección IP
-        s.connect(("8.8.8.8", 80))
-        # Obtener la dirección IP del socket
-        ip_address = s.getsockname()[0]
-        # Cerrar el socket
-        s.close()
-        return ip_address
-    except socket.error as e:
-        st.text(e)
-        return None
-
-# Obtener y mostrar la dirección IP
-ip_address = get_ip_address()
-if ip_address:
-    st.text(ip_address)
-else:
-    st.text("No se pudo obtener la dirección IP.")
-
 
 
 
