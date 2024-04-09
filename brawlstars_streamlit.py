@@ -70,6 +70,7 @@ for battle in battles:
         for player in battle['battle']['players']:
             if player['tag'] == player_tag:
                 brawler = player['brawler']['name']
+                continue
             if player['tag'] in players.keys():
                 players[player['tag']][1] += 1
             else:
@@ -78,15 +79,19 @@ for battle in battles:
         for player in battle['battle']['teams'][0] + battle['battle']['teams'][1]:
             if player['tag'] == player_tag:
                 brawler = player['brawler']['name']
+                continue
             if player['tag'] in players.keys():
                 players[player['tag']][1] += 1
             else:
                 players[player['tag']] = [player['name'], 1]
 
-    if brawler in brawlers:
-        brawlers[brawler] += 1
-    else:
-        brawlers[brawler] = 1
+    try:
+        if brawler in brawlers:
+            brawlers[brawler] += 1
+        else:
+            brawlers[brawler] = 1
+    except:
+        pass
     
     try:
         trophies = int(battle['battle']['trophyChange'])
