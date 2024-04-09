@@ -26,9 +26,6 @@ my_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi
 # CONFIGURACIÓN DE LA WEB
 st.set_page_config(layout="wide", page_title="Liga Terraplanista")
 
-player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
-
-
 pred_players = {'Matías': '#YGG02LP0',
                 'Merto': '#298QCP0L8',
                 'Gustabo': '#20LC9VGP',
@@ -37,6 +34,8 @@ pred_players = {'Matías': '#YGG02LP0',
                 'Chino': '#YY88RLL0',
                 'Antonio Reverte': '#YGUGQ0GU',
                 'Desi': '#CLG2RRC9'}
+
+player_name = st.selectbox('Jugador', pred_players.keys(), index=1)
 
 player_name = 'Desi'    # PROVISIONAL
 
