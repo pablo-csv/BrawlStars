@@ -48,7 +48,10 @@ else:
     
 print(player_tag)
 
-battles = get_battlelog(player_tag, my_key)
+try:
+    battles = get_battlelog(player_tag, my_key)['items']
+except:
+    print('Nada que mostrar...')
 
 st.text(battles)
 
@@ -62,7 +65,6 @@ trophies = 0
 
 for battle in battles:
     time = battle['battleTime']
-    
     mode = battle['battle']['mode']
     if mode in modes:
         modes[mode] += 1
