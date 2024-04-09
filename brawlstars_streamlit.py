@@ -35,7 +35,7 @@ pred_players = {'Matías': '#YGG02LP0',
                 'Antonio Reverte': '#YGUGQ0GU',
                 'Desi': '#CLG2RRC9'}
 
-player_name = st.selectbox('Jugador (admite tags empezados por # de jugadores no predeterminados)', pred_players.keys(), index=1)
+player_name = st.selectbox('Jugador (en modo ordenador, también admite tags empezados por # de jugadores no predeterminados)', pred_players.keys(), index=1)
 
 
 if player_name[0] == '#':
@@ -160,8 +160,12 @@ for brawler, number in brawlers.items():
         st.write(f'{brawler}: {number} partidas')
 
 st.write(' ')
+st.write(' ')
 
-st.text('Merto estoy enamorado de ti')
+st.text('Datos usados para el análisis:')
+
+for battle in battles:
+    st.write(battle)
 
 
 
