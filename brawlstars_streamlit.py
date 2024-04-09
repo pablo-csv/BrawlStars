@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 import json
 import base64
-import altair alt
+import altair as alt
 import pandas as pd
 
 
