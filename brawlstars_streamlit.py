@@ -15,7 +15,7 @@ def get_battlelog(player_tag, my_key):
         battlelog = response.json()
         return battlelog
     except requests.exceptions.RequestException as e:
-        st.text("Error:", e)
+        st.text(e)
         return None
     
 
@@ -57,13 +57,13 @@ def get_ip_address():
         s.close()
         return ip_address
     except socket.error as e:
-        st.text("Error al obtener la dirección IP:", e)
+        st.text(e)
         return None
 
 # Obtener y mostrar la dirección IP
 ip_address = get_ip_address()
 if ip_address:
-    st.text("La dirección IP de este dispositivo es:", ip_address)
+    st.text(ip_address)
 else:
     st.text("No se pudo obtener la dirección IP.")
 
