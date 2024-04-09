@@ -62,7 +62,7 @@ trophies = 0
 
 for battle in battles:
     time = battle['battleTime']
-    #year, month, day, hour = time[0:4], time[4:6], time[6:8], ':'.join([time[9:15][i:i+2] for i in range(0, len(time[9:15]), 2)])
+    
     mode = battle['battle']['mode']
     if mode in modes:
         modes[mode] += 1
