@@ -3,6 +3,8 @@ import requests
 import streamlit as st
 import json
 import base64
+import matplotlib.pyplot as plt
+
 
 
 # Define la función para descargar los datos en formato JSON o TXT
@@ -183,6 +185,20 @@ for brawler, number in brawlers.items():
         st.write(f'{brawler}: {number} partida')
     else:
         st.write(f'{brawler}: {number} partidas')
+
+# Extraer etiquetas y tamaños de valores del diccionario
+etiquetas = list(brawlers.keys())
+tamaños = list(brawlers.values())
+
+# Crear el gráfico circular
+fig, ax = plt.subplots()
+ax.pie(tamaños, labels=etiquetas, autopct='%1.1f%%', startangle=140)
+ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax.set_title('Distribución de Brawlers')
+
+# Mostrar el gráfico en Streamlit
+st.pyplot(fig)
+
 
 st.write(' ')
 st.write(' ')
