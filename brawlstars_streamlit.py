@@ -4,7 +4,7 @@ import streamlit as st
 
 
 
-def get_battlelog(player_tag, my_key, proxy):
+def get_battlelog(player_tag, my_key):
     api_url = f'https://proxy.royaleapi.dev/v1/players/%23{player_tag[1:]}/battlelog'
     headers = {
         'Authorization': f'Bearer {my_key}',
