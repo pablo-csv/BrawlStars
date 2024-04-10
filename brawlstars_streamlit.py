@@ -53,6 +53,7 @@ pred_players = {'Matías': '#YGG02LP0',
                 'Gustabo': '#20LC9VGP',
                 'Oscarabajo': '#YVLPG0G',
                 'Chino': '#YY88RLL0',
+                'Antonio Reverte': '#YGUGQ0GU',
                 'Desi': '#CLG2RRC9'}
 
 player_name = st.selectbox('Jugador (en modo ordenador, también admite tags empezados por # de jugadores no predeterminados)', pred_players.keys(), index=1)
